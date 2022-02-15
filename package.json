@@ -6,6 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/omer73364/lazy-load-list",
+  "bugs": {
+    "url": "https://github.com/omer73364/lazy-load-list/issues",
+    "email": "anwar733649039@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omer73364/lazy-load-list.git"
+  },
   "keywords": [
     "virtual",
     "list",

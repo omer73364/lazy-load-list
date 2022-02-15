@@ -1,10 +1,22 @@
 <template>
   <div class="dots">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+    <div :style="`background-color: ${color}`"></div>
+    <div :style="`background-color: ${color}`"></div>
+    <div :style="`background-color: ${color}`"></div>
   </div>
 </template>
+
+<script>
+export default {
+    name: 'Loading',
+    props:{
+      color:{
+        type: String,
+        default: '#18191A',
+      },
+    }
+}
+</script>
 
 <style>
     .dots {
@@ -13,10 +25,6 @@
         flex-flow: row nowrap;
         align-items: center;
         justify-content: space-between;
-    }
-
-    .dot{
-        background-color: #18191A;
     }
 
     .dots div {

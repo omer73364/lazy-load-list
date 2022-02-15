@@ -1,22 +1,19 @@
 <!-- HTML -->
 <template>
-<div :class="`${containerClasses}`">
-  <div id="icons-container" ref="container">
-
+  <div id="container" ref="container" :class="`${containerClasses}`">
     <!-- items rendering -->
-    <div 
-      v-for="(item,index) in itemsToDisplay" 
-      :key="index" 
+    <template 
+      v-for="(item) in itemsToDisplay" 
     >
       <slot 
         :item="item"
       ></slot>
-    </div>
+    </template>
 
     <template v-if="loading">
       <!-- Loading component -->
       <div v-if="defaultLoading" id="loading-wrapper">
-          <Loading />
+          <Loading :color="defaultLoadingColor"/>
       </div>
       <slot v-else name="loading"></slot>
     </template>
@@ -27,12 +24,11 @@
     </template>
 
   </div>
-</div>
 </template>
 
 <!-- JAVASCRIPT -->
 <script>
-  import chunkArray from "../lib/chunkArray";
+  import chunkArray from "../lib/chunkArray.js";
   import Loading from "./Loading.vue";
   export default {
     name: 'LazyList',
@@ -46,6 +42,10 @@
         type: Number,
         default: 3,
       },
+      height:{
+        type: Number,
+        default: 480,
+      },
       containerClasses:{
         type: String,
         default: '',
@@ -53,6 +53,10 @@
       defaultLoading:{
         type: Boolean,
         default: true,
+      },
+      defaultLoadingColor:{
+        type: String,
+        default: '#18191A',
       },
     },
     created(){
@@ -102,23 +106,23 @@
 
 <!-- CSS -->
 <style>
-    #icons-container{
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-        scrollbar-width: thin;
+    #container{
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
     }
     #end-of-list{
-        height: 32px;
-        width: 100%;
+      height: 32px;
+      width: 100%;
     }
     #loading-wrapper{
-        width: 100%;
-        height: 32px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      width: 100%;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 </style>

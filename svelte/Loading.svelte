@@ -1,3 +1,6 @@
+<script>
+    export const color = '#18191A';
+</script>
 <style>
     .dots {
         width: 3.5em;
@@ -5,10 +8,6 @@
         flex-flow: row nowrap;
         align-items: center;
         justify-content: space-between;
-    }
-
-    .dot{
-        background-color: #18191A;
     }
 
     .dots div {
@@ -37,7 +36,7 @@
 </style>
 
 <div class="dots">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+    <div style={`background-color: ${color};`}></div>
+    <div style={`background-color: ${color};`}></div>
+    <div style={`background-color: ${color};`}></div>
 </div>

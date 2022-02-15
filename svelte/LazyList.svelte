@@ -1,6 +1,6 @@
 <!-- JAVASCRIPT -->
 <script>
-    import chunkArray from "../lib/chunkArrayrray";
+    import chunkArray from "../lib/chunkArray";
     import { onDestroy, onMount } from "svelte";
     import Loading from "./Loading.svelte";
 
@@ -9,6 +9,7 @@
     export let itemsPerRender = 3
     export let containerClasses = ''
     export let defaultLoading = true
+    export let defaultLoadingColor = '#18191A'
 
     // data
     let items = chunkArray(data,itemsPerRender) // chunkArray(data,itemsPerRender) to get array of small arrays
@@ -39,44 +40,42 @@
 
     // component lifecycle
     onMount(()=>{
-        document.getElementById('icons-container').addEventListener('scroll', loadItems)
+        document.getElementById('container').addEventListener('scroll', loadItems)
     })
 
     onDestroy(()=>{
-        document.getElementById('icons-container').removeEventListener('scroll', loadItems)
+        document.getElementById('container').removeEventListener('scroll', loadItems)
     })
 
 </script>
 
 <!-- HTML -->
-<div class={containerClasses}>
-    <div id="icons-container">
+<div id="container" class={containerClasses}>
 
-        <!-- items rendering -->
-        {#each itemsToDisplay as item}
-            <slot item={item}></slot>
-        {/each}
-    
-        {#if loading}
-            <!-- Loading component -->
-            {#if defaultLoading}
-                <div id="loading-wrapper">
-                    <Loading />
-                </div>
-            {:else}
-                <slot name="loading"></slot>
-            {/if}
-        {:else if (page !== items.length - 1)}
-            <!-- list footer -->
-            <div id="end-of-list"/>
+    <!-- items rendering -->
+    {#each itemsToDisplay as item}
+        <slot item={item}></slot>
+    {/each}
+
+    {#if loading}
+        <!-- Loading component -->
+        {#if defaultLoading}
+            <div id="loading-wrapper">
+                <Loading color={defaultLoadingColor}/>
+            </div>
+        {:else}
+            <slot name="loading"></slot>
         {/if}
+    {:else if (page !== items.length - 1)}
+        <!-- list footer -->
+        <div id="end-of-list"/>
+    {/if}
         
-    </div>
 </div>
 
 <!-- CSS -->
 <style>
-    #icons-container{
+    #container{
         width: 100%;
         height: 100%;
         overflow-y: auto;

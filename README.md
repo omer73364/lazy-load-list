@@ -28,54 +28,102 @@ you can notice the deference here:
 install the package using npm or yarn:
 
 install using npm
+
 `  $ npm i lazy-load-list `
 
 or using yarn
+
 `  $ yarn add lazy-load-list `
 
 ## Usage
 
-> ⚠  you must specify the height in containerClasses 
-> e.g:  height: 320px;
-> 
-> or the list will not work
+> ⚠  you must wrap the list by div and specify the height and width in the wrapper div.
 
 - <img width="14" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1200px-Svelte_Logo.svg.png" alt="svelte logo"/> svelte js:
 
 > 
 	import LazyList from 'lazy-load-list/svelte'
 
-	<LazyList
-		data={[1,2,3,4,5,6,7,8]}
-		itemsPerRender={4}
-		containerClasses="container" // must specify height in this class
-	>
-		<h1 let:item={category}> { item } </h1>
-	</LazyList>
+	<div  class="container">
+		<LazyList
+			data={colors}
+			itemsPerRender={15}
+			containerClasses="list"
+			defaultLoadingColor="#222"
+			let:item={item}
+		>
+			<h1>{ item }<h1>
+		</LazyList>
+	</div>
 
 - <img width="14" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png" alt="svelte"/> vue js:
 
 > 
-	<LazyList
-		:data="[1,2,3,4,5,6,7,8]"
-		:itemsPerRender="4"
-		containerClasses="container" // must specify height in this class
-	>
-		<template slot-scope="{item}">
-			<h1> {{ item }} </h1>
-		</template>
-	</LazyList>
-	
+	<div class="container">
+		<LazyList
+			:data="items"
+			:itemsPerRender="15"
+			containerClasses="list"
+			defaultLoadingColor="#222"
+		>
+			<template v-slot="{item}">
+			    <h1>{{ item }}<h1>
+			</template>
+		</LazyList>
+	</div>
+
 	// script
 	import LazyList from 'lazy-load-list/vue'
 	..
 	components: { LazyList } // don't forget to define it in the components
 	
 
+## Props
+
+<table>
+	<tr>
+		<td>prop</td>
+		<td>description</td>
+		<td>required</td>
+		<td>default value</td>
+	</tr>
+	<tr>
+		<td>data</td>
+		<td>the item array</td>
+		<td>yes</td>
+		<td>[]</td>
+	</tr>
+	<tr>
+		<td>itemsPerRender</td>
+		<td>items to be rendered per load</td>
+		<td>yes</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>containerClasses</td>
+		<td>list container classes for CSS</td>
+		<td>no</td>
+		<td>''</td>
+	</tr>
+	<tr>
+		<td>defaultLoading</td>
+		<td>to show the default loading or not</td>
+		<td>no</td>
+		<td>true</td>
+	</tr>
+	<tr>
+		<td>defaultLoadingColor</td>
+		<td>color of the default loading </td>
+		<td>no</td>
+		<td>'#18191A'</td>
+	</tr>
+</table>
+
 ## Examples
 
--  [Simple example in Svelte js](https://codesandbox.io)
+-  [Simple example in Svelte js](https://lazy-load-svelte-example.netlify.com)
+-  [Simple example in Vue js](https://lazy-load-vue-example.netlify.com)
 
--  [Simple example in Vue js](https://codesandbox.io)
+you can find the source code of examples in [examples](https://github.com/omer73364/lazy-load-list/tree/main/examples) folder
 
 
