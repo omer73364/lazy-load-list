@@ -7,6 +7,15 @@ Rendering large lists makes the first load slow especially if items contain imag
 you can notice the deference here:
 
 ![loading performance deference](https://lh3.googleusercontent.com/pw/AM-JKLXhB1jRKtOi4OhwEfINuYPKGD0LF4XBoQa0XbFoH9jUPQGW0GsOEl-cgnGzIrutEarCEwIDfV23jpI80P-xtIsgmv9oJD2KfImErE66p-5EukjEPCSVefObsHcS7FvZXnjSqC-MpnCpa-Vywq61KvGb=w1280-h720-no?authuser=0)
+
+## Demo
+
+-  [Simple example in Svelte js](https://lazy-load-svelte-example.netlify.com)
+-  [Simple example in Vue js](https://lazy-load-vue-example.netlify.com)
+
+you can find the source code of examples in [examples](https://github.com/omer73364/lazy-load-list/tree/main/examples) folder
+
+
 ## Features
 
  - Fast Loading 🚀
@@ -118,12 +127,4 @@ or using yarn
 		<td>'#18191A'</td>
 	</tr>
 </table>
-
-## Examples
-
--  [Simple example in Svelte js](https://lazy-load-svelte-example.netlify.com)
--  [Simple example in Vue js](https://lazy-load-vue-example.netlify.com)
-
-you can find the source code of examples in [examples](https://github.com/omer73364/lazy-load-list/tree/main/examples) folder
-
 
