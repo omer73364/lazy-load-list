@@ -1,7 +1,8 @@
-# Vue 3 + Vite
+# Lazy Load List (Vue Example)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a basic example for Lazy Load List in Vue js
 
-## Recommended IDE Setup
+## Installation
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+download the code then run `npm install` or `yarn`
+to start the dev server: `npm run dev` or `yarn dev`
