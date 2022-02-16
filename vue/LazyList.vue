@@ -42,10 +42,6 @@
         type: Number,
         default: 3,
       },
-      height:{
-        type: Number,
-        default: 480,
-      },
       containerClasses:{
         type: String,
         default: '',
@@ -60,9 +56,9 @@
       },
     },
     created(){
-      this.momentItem();
+      this.updateList();
       this.$watch('data', function () {
-          this.momentItem();
+          this.updateList();
        }, {deep:true})
     },
     mounted(){
@@ -82,11 +78,13 @@
       }  
     },
     methods:{
-      momentItem() {
+      // set the list and update it when data changes
+      updateList() {
         const chunckedArray = chunkArray(this.data,this.itemsPerRender) // chunkArray(data,itemsPerRender) to get array of small arrays
         this.items = chunckedArray
         this.itemsToDisplay =  chunckedArray[0]
        },
+      
       // load more items when scrolling to the end of the list
       loadItems(){
         if(this.page === this.items.length - 1) return
