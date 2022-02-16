@@ -60,9 +60,10 @@
       },
     },
     created(){
-      const chunckedArray = chunkArray(this.data,this.itemsPerRender) // chunkArray(data,itemsPerRender) to get array of small arrays
-      this.items = chunckedArray
-      this.itemsToDisplay =  [...chunckedArray[0]]
+      this.momentItem();
+      this.$watch('data', function () {
+          this.momentItem();
+       }, {deep:true})
     },
     mounted(){
       this.endOfList = this.$refs["end-of-list"]
@@ -81,6 +82,11 @@
       }  
     },
     methods:{
+      momentItem() {
+        const chunckedArray = chunkArray(this.data,this.itemsPerRender) // chunkArray(data,itemsPerRender) to get array of small arrays
+        this.items = chunckedArray
+        this.itemsToDisplay =  chunckedArray[0]
+       },
       // load more items when scrolling to the end of the list
       loadItems(){
         if(this.page === this.items.length - 1) return
