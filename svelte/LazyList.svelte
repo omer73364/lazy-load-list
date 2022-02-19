@@ -69,7 +69,9 @@
                 <Loading color={defaultLoadingColor}/>
             </div>
         {:else}
-            <slot name="loading"></slot>
+            <div id="loading-wrapper">
+                <slot name="loading"></slot>
+            </div>
         {/if}
     {/if}
     <!-- list footer -->

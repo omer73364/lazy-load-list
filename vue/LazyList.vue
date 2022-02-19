@@ -15,7 +15,9 @@
       <div v-if="defaultLoading" id="loading-wrapper">
           <Loading :color="defaultLoadingColor"/>
       </div>
-      <slot v-else name="loading"></slot>
+      <div  v-else id="loading-wrapper">
+        <slot name="loading"></slot>
+      </div>
     </template>
 
     <!-- list footer -->
