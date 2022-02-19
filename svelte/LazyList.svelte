@@ -34,12 +34,14 @@
             setTimeout(() => {
                 itemsToDisplay = [...itemsToDisplay, ...items[page]]
                 loading = false
+                loadItems()
             }, 500);
         }
     }
 
     // component lifecycle
     onMount(()=>{
+        loadItems()
         document.getElementById('container').addEventListener('scroll', loadItems)
     })
 
@@ -66,10 +68,9 @@
         {:else}
             <slot name="loading"></slot>
         {/if}
-    {:else if (page !== items.length - 1)}
-        <!-- list footer -->
-        <div id="end-of-list"/>
     {/if}
+    <!-- list footer -->
+    <div hidden={!(page !== items.length - 1)} id="end-of-list"/>
         
 </div>
 
