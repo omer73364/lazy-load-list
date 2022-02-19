@@ -18,10 +18,8 @@
       <slot v-else name="loading"></slot>
     </template>
 
-    <template v-else-if="(page !== items.length - 1)">
-      <!-- list footer -->
-      <div id="end-of-list" ref="end-of-list"/>
-    </template>
+    <!-- list footer -->
+    <div v-show="(page !== items.length - 1)" id="end-of-list" ref="end-of-list"/>
 
   </div>
 </template>
@@ -62,8 +60,8 @@
        }, {deep:true})
     },
     mounted(){
-      this.endOfList = this.$refs["end-of-list"]
       this.$refs['container'].addEventListener('scroll', this.loadItems)
+      this.loadItems()
     },
     beforeUnmount(){
       this.$refs['container'].removeEventListener('scroll', this.loadItems)
@@ -74,7 +72,6 @@
         page: 0, // page represents the index of last small array in the list
         loading: false,
         itemsToDisplay: [], // the list of items to be rendered
-        endOfList: null
       }  
     },
     methods:{
@@ -89,10 +86,11 @@
       loadItems(){
         if(this.page === this.items.length - 1) return
         
-        const element = this.endOfList;
+        const element = this.$refs["end-of-list"] //this.endOfList;
         if(!element) return
         
         const position = element.getBoundingClientRect();
+        // console.log(position.bottom)
 
         // checking whether fully visible
         if((position.top >= 0 && position.bottom <= window.innerHeight) && !this.loading) {
@@ -101,6 +99,7 @@
             setTimeout(() => {
                 this.itemsToDisplay = [...this.itemsToDisplay, ...this.items[this.page]]
                 this.loading = false
+                this.loadItems()
             }, 500);
         }
       },
