@@ -19,7 +19,7 @@
     </template>
 
     <!-- list footer -->
-    <div v-show="(page !== items.length - 1)" id="end-of-list" ref="end-of-list"/>
+    <div v-show="((page !== items.length - 1) || !loading)" id="end-of-list" ref="end-of-list"/>
 
   </div>
 </template>
