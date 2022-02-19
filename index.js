@@ -1,3 +1,4 @@
 import SvelteLazyList from './svelte'
 import VueLazyList from './vue'
-export { SvelteLazyList, VueLazyList }
+import ReactLazyList from './react'
+export { SvelteLazyList, VueLazyList, ReactLazyList }
