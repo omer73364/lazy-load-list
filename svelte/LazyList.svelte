@@ -26,6 +26,8 @@
         if(page === items.length - 1) return
         
         const element = document.getElementById("end-of-list");
+        if(!element) return
+        
         const position = element.getBoundingClientRect();
 
         // checking whether fully visible

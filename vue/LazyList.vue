@@ -91,7 +91,6 @@
         if(!element) return
         
         const position = element.getBoundingClientRect();
-        // console.log(position.bottom)
 
         // checking whether fully visible
         if((position.top >= 0 && position.bottom <= window.innerHeight  ) && !this.loading) {
