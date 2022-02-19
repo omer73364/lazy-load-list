@@ -1,5 +1,6 @@
 <!-- JAVASCRIPT -->
 <script>
+    import '../lib/loading.css'
     import chunkArray from "../lib/chunkArray";
     import { onDestroy, onMount } from "svelte";
     import Loading from "./Loading.svelte";
@@ -73,26 +74,3 @@
     <div hidden={!(page !== items.length - 1)} id="end-of-list"/>
         
 </div>
-
-<!-- CSS -->
-<style>
-    #container{
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-        scrollbar-width: thin;
-    }
-    #end-of-list{
-        height: 32px;
-        width: 100%;
-    }
-    #loading-wrapper{
-        width: 100%;
-        height: 32px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>

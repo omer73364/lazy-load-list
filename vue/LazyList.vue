@@ -26,6 +26,7 @@
 
 <!-- JAVASCRIPT -->
 <script>
+  import '../lib/loading.css'
   import chunkArray from "../lib/chunkArray.js";
   import Loading from "./Loading.vue";
   export default {
@@ -93,7 +94,7 @@
         // console.log(position.bottom)
 
         // checking whether fully visible
-        if((position.top >= 0 && position.bottom <= window.innerHeight) && !this.loading) {
+        if((position.top >= 0 && position.bottom <= window.innerHeight  ) && !this.loading) {
             this.loading = true
             this.page++
             setTimeout(() => {
@@ -106,26 +107,3 @@
     }
   }
 </script>
-
-<!-- CSS -->
-<style>
-    #container{
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-    }
-    #end-of-list{
-      height: 32px;
-      width: 100%;
-    }
-    #loading-wrapper{
-      width: 100%;
-      height: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-</style>
