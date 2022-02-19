@@ -50,4 +50,11 @@ export default {
             opacity: 0;
         }
     }
+
+    @media(max-width: 480px) {
+        .dots div {
+            width: 0.7em;
+            height: 0.7em;
+        }
+    }
 </style>
