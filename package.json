@@ -1,6 +1,6 @@
 {
   "name": "lazy-load-list",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "lazy load list is a lightweight web package that loads items in lazy way to achieve high performance and better UX in large lists.",
   "main": "index.js",
   "scripts": {
