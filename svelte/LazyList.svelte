@@ -1,6 +1,6 @@
 <!-- JAVASCRIPT -->
 <script>
-    import '../lib/loading.css'
+    import '../lib/index.css'
     import chunkArray from "../lib/chunkArray";
     import { onDestroy, onMount } from "svelte";
     import Loading from "./Loading.svelte";

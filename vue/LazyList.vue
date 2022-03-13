@@ -28,7 +28,7 @@
 
 <!-- JAVASCRIPT -->
 <script>
-  import '../lib/loading.css'
+  import '../lib/index.css'
   import chunkArray from "../lib/chunkArray.js";
   import Loading from "./Loading.vue";
   export default {
