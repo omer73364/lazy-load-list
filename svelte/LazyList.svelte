@@ -12,6 +12,15 @@
     export let defaultLoading = true
     export let defaultLoadingColor = '#18191A'
 
+    // watching changes
+    $:{
+        items = chunkArray(data,itemsPerRender)
+        page = 0
+        loading = false
+        itemsToDisplay = items[0]
+        loadItems()
+    }
+
     // data
     let items = chunkArray(data,itemsPerRender) // chunkArray(data,itemsPerRender) to get array of small arrays
     let page = 0 // page represents the index of last small array in the list
@@ -49,7 +58,9 @@
     })
 
     onDestroy(()=>{
-        document.getElementById('container').removeEventListener('scroll', loadItems)
+        if(document.getElementById('container')){
+            document.getElementById('container').removeEventListener('scroll', loadItems)
+        }
     })
 
 </script>
