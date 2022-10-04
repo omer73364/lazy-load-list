@@ -68,7 +68,7 @@ or using yarn
 			defaultLoadingColor="#222"
 			let:item={item}
 		>
-			<h1>{ item }<h1>
+			<h1>{ item }</h1>
 		</LazyList>
 	</div>
 
@@ -83,7 +83,7 @@ or using yarn
 			defaultLoadingColor="#222"
 		>
 			<template v-slot="{item}">
-			    <h1>{{ item }}<h1>
+			    <h1>{{ item }}</h1>
 			</template>
 		</LazyList>
 	</div>
