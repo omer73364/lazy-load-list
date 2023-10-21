@@ -1,6 +1,6 @@
 # Lazy Load List
 
-#### # Stand With Palestine 🇵🇸
+### # Stand With Palestine 🇵🇸
 
 ### Lazy Load List is a lightweight web package that loads items in lazy way to achieve high performance and better UX in large lists.
 
