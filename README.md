@@ -19,9 +19,9 @@ you can notice the deference here:
 
 ## Demo
 
--  [Simple example in Svelte js](https://lazy-load-svelte-example.netlify.com)
--  [Simple example in Vue js](https://lazy-load-vue-example.netlify.com)
--  [Simple example in React js](https://lazy-load-react-example.netlify.com)
+-  [Simple example in Svelte js](https://lazy-load-svelte-example.netlify.app)
+-  [Simple example in Vue js](https://lazy-load-vue-example.netlify.app)
+-  [Simple example in React js](https://lazy-load-react-example.netlify.app)
 
 you can find the source code of examples in [examples](https://github.com/omer73364/lazy-load-list/tree/main/examples) folder
 
